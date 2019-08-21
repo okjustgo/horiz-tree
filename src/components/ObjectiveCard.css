@@ -1,0 +1,102 @@
+.ObjectiveCard {
+  position: relative;
+  padding: 10px 5px 10px 5px;
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto 32px 600px 500px;    
+}
+
+.ObjectiveContent {
+  height: 100px;
+  width: 600px;
+  border: 1px solid red;
+  background-color: lightgrey;
+  grid-column: 1;
+}
+
+.CollapsedChildren {
+  position: absolute;
+  height: 80px;
+  width: 600px;
+  border: 1px dashed grey;
+  background-color: #eee;
+  grid-column: 1;
+}
+
+.Overlapping {
+  height: 100px;
+  width: 600px;
+}
+
+.Level {
+  grid-column: 3;
+}
+
+.L1 .ObjectiveContent {
+  border: 1px solid green !important;
+}
+
+.L1 .ObjectiveCard::before {
+  border-left: 2px solid grey;
+  height: 100%;
+  width: 0;
+  top: 0;
+  left: -12px;
+  position: absolute;
+  content: "";
+}
+
+.hidden {
+  display: none;
+}
+
+.ObjectiveContent.expanded {
+  height: 800px;
+  width: 900px;
+}
+
+/* This affects the vertical bar for the first child */
+.L1 .ObjectiveCard:first-child::before {
+  height: 100%-51px;
+  top: 51px;
+}
+
+.ObjectiveCard:first-child {
+  padding-top: 0px;
+}
+
+/* This affects the vertical bar for the last child */
+.L1 .ObjectiveCard:last-child::before {
+  height: 51px;
+  top: 0;
+}
+
+.ObjectiveCard:last-child {
+  padding-bottom: 0px;
+}
+
+.L1 .ObjectiveCard:nth-child(n + 2)::after {
+  border-top: 2px solid grey;
+  height: 0;
+  width: 18px;
+  top: 51px;
+  left: -12px;
+  content: "";
+  position: absolute;
+}
+
+/* This is the horizontal line that connects to parent */
+.L1 .ObjectiveCard:first-child::after {
+  border-top: 2px solid grey;
+  height: 0;
+  width: 37px;
+  top: 51px;
+  left: -31px;
+  content: "";
+  position: absolute;
+}
+
+.L1 .ObjectiveCard:only-child:before {
+  content: none;
+}
