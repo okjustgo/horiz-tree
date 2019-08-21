@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/horiz-tree/static/css/main.1d3c49e1.chunk.css",
+    "main.js": "/horiz-tree/static/js/main.8fddc65a.chunk.js",
+    "main.js.map": "/horiz-tree/static/js/main.8fddc65a.chunk.js.map",
+    "runtime~main.js": "/horiz-tree/static/js/runtime~main.f58da816.js",
+    "runtime~main.js.map": "/horiz-tree/static/js/runtime~main.f58da816.js.map",
+    "static/js/2.49f492f7.chunk.js": "/horiz-tree/static/js/2.49f492f7.chunk.js",
+    "static/js/2.49f492f7.chunk.js.map": "/horiz-tree/static/js/2.49f492f7.chunk.js.map",
+    "index.html": "/horiz-tree/index.html",
+    "precache-manifest.48ef4f408d817e7afce8fab4d8675d9d.js": "/horiz-tree/precache-manifest.48ef4f408d817e7afce8fab4d8675d9d.js",
+    "service-worker.js": "/horiz-tree/service-worker.js",
+    "static/css/main.1d3c49e1.chunk.css.map": "/horiz-tree/static/css/main.1d3c49e1.chunk.css.map"
+  }
+}
