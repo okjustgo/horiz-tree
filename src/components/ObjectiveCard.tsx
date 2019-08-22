@@ -35,7 +35,7 @@ export const ObjectiveCard: React.FC<ObjectiveCardProps> = props => {
       />
       <React.Fragment>
         <div
-          className={classNames("Level", "L1", "Overlapping", {
+          className={classNames("Level", {
             hidden: showChildren
           })}
           onClick={e => {

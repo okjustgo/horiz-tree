@@ -4,7 +4,7 @@
   height: 100%;
   width: 100%;
   display: grid;
-  grid-template-columns: auto 32px 600px 500px;    
+  grid-template-columns: 1fr auto 32px 600px 1fr;
 }
 
 .ObjectiveContent {
@@ -12,7 +12,7 @@
   width: 600px;
   border: 1px solid red;
   background-color: lightgrey;
-  grid-column: 1;
+  grid-column: 2;
 }
 
 .CollapsedChildren {
@@ -21,30 +21,16 @@
   width: 600px;
   border: 1px dashed grey;
   background-color: #eee;
-  grid-column: 1;
-}
-
-.Overlapping {
-  height: 100px;
-  width: 600px;
+  grid-column: 2;
 }
 
 .Level {
-  grid-column: 3;
+  grid-column: 4;
 }
 
-.L1 .ObjectiveContent {
+/* Make anything that isn't the first level have a green border */
+.Level .ObjectiveContent {
   border: 1px solid green !important;
-}
-
-.L1 .ObjectiveCard::before {
-  border-left: 2px solid grey;
-  height: 100%;
-  width: 0;
-  top: 0;
-  left: -12px;
-  position: absolute;
-  content: "";
 }
 
 .hidden {
@@ -56,38 +42,51 @@
   width: 900px;
 }
 
-/* This affects the vertical bar for the first child */
-.L1 .ObjectiveCard:first-child::before {
-  height: 100%-51px;
-  top: 51px;
-}
-
+/* Clean up some padding for first and last child */
 .ObjectiveCard:first-child {
   padding-top: 0px;
 }
-
-/* This affects the vertical bar for the last child */
-.L1 .ObjectiveCard:last-child::before {
-  height: 51px;
-  top: 0;
-}
-
 .ObjectiveCard:last-child {
   padding-bottom: 0px;
 }
 
-.L1 .ObjectiveCard:nth-child(n + 2)::after {
-  border-top: 2px solid grey;
-  height: 0;
-  width: 18px;
-  top: 51px;
+/*****************/
+/* Vertical line */
+/*****************/
+
+.Level .ObjectiveCard::before {
+  border-left: 2px solid grey;
+  height: 100%;
+  width: 0;
+  top: 0;
   left: -12px;
-  content: "";
   position: absolute;
+  content: "";
 }
 
-/* This is the horizontal line that connects to parent */
-.L1 .ObjectiveCard:first-child::after {
+/* This makes the vertical line for the first child shorter */
+.Level .ObjectiveCard:first-child::before {
+  height: 100%-51px;
+  top: 51px;
+}
+
+/* This makes the vertical line for the last child shorter */
+.Level .ObjectiveCard:last-child::before {
+  height: 51px;
+  top: 0;
+}
+
+/* This hides the vertical line if there is only 1 child */
+.Level .ObjectiveCard:only-child:before {
+  content: none;
+}
+
+/*******************/
+/* Horizontal line */
+/*******************/
+
+/* This is the long horizontal line that connects to parent */
+.Level .ObjectiveCard:first-child::after {
   border-top: 2px solid grey;
   height: 0;
   width: 37px;
@@ -97,6 +96,13 @@
   position: absolute;
 }
 
-.L1 .ObjectiveCard:only-child:before {
-  content: none;
+/* This is the horizontal line for the children */
+.Level .ObjectiveCard:nth-child(n + 2)::after {
+  border-top: 2px solid grey;
+  height: 0;
+  width: 18px;
+  top: 51px;
+  left: -12px;
+  content: "";
+  position: absolute;
 }
